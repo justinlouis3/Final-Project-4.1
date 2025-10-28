@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>South Beach Homes - Luxury Real Estate</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">🏖️ South Beach Homes</div>
+            <ul class="nav-links">
+                <li><a href="#properties">Properties</a></li>
+                <li><a href="#agents">Agents</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="southbeach">
+        <h1>🏖️ South Beach Luxury Homes</h1>
+        <p>Discover your dream oceanfront property in Miami's most exclusive neighborhood</p>
+        <button class="cta-button" onclick="loadFeaturedProperties()">
+            <i class="fas fa-search"></i> Browse Properties
+        </button>
+    </div>
+
+    <div class="container">
+        <div class="stats-section">
+            <div class="stat-card">
+                <div class="stat-number" id="totalProperties">100</div>
+                <div class="stat-label">Available Properties</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="totalAgents">10</div>
+                <div class="stat-label">Expert Agents</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">500+</div>
+                <div class="stat-label">Happy Clients</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">$2.5M</div>
+                <div class="stat-label">Average Price</div>
+            </div>
+        </div>
+
+        <div class="search-section">
+            <h2>🔍 Find Your Perfect Home</h2>
+            <p>Search through our exclusive collection of South Beach properties</p>
+            <div class="search-form">
+                <input type="text" class="search-input" id="searchInput" placeholder="Search by location, price, or features...">
+                <select class="search-input" id="priceRange">
+                    <option value="">All Price Ranges</option>
+                    <option value="low">Under $2M</option>
+                    <option value="mid">$2M - $5M</option>
+                    <option value="high">$5M+</option>
+                </select>
+                <button class="btn" onclick="searchProperties()">
+                    <i class="fas fa-search"></i> Search
+                </button>
+                <button class="btn btn-secondary" onclick="loadFeaturedProperties()">
+                    <i class="fas fa-star"></i> Featured
+                </button>
+            </div>
+        </div>
+
+        <section id="properties">
+            <h2 class="section-title">🏡 Featured Properties</h2>
+            <div id="loadingMessage" class="loading" style="display: none;">
+                <i class="fas fa-spinner"></i> Loading amazing properties...
+            </div>
+            <div id="propertiesGrid" class="properties-grid">
+                <!-- Properties will be loaded dynamically -->
+            </div>
+        </section>
+
+        <section id="agents" style="margin-top: 80px;">
+            <h2 class="section-title">👥 Meet Our Expert Agents</h2>
+            <div id="agentsGrid" class="properties-grid">
+                <!-- Agents will be loaded dynamically -->
+            </div>
+        </section>
+
+        <section id="contact" style="margin-top: 80px;">
+            <div class="contact-info">
+                <h2 style="color: #333; margin-bottom: 20px;">� Contact South Beach Homes</h2>
+                <p style="color: #666; margin-bottom: 30px;">Ready to find your dream home? Get in touch with our expert team today!</p>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-top: 30px;">
+                    <div>
+                        <h4 style="color: #FF6B6B; margin-bottom: 10px;"><i class="fas fa-phone"></i> Phone</h4>
+                        <p style="color: #666;">+1 (305) 555-BEACH</p>
+                        <p style="color: #666;">+1 (305) 555-HOMES</p>
+                    </div>
+                    <div>
+                        <h4 style="color: #FF6B6B; margin-bottom: 10px;"><i class="fas fa-envelope"></i> Email</h4>
+                        <p style="color: #666;">info@southbeachhomes.com</p>
+                        <p style="color: #666;">luxury@southbeachhomes.com</p>
+                    </div>
+                    <div>
+                        <h4 style="color: #FF6B6B; margin-bottom: 10px;"><i class="fas fa-map-marker-alt"></i> Office</h4>
+                        <p style="color: #666;">1234 Ocean Drive</p>
+                        <p style="color: #666;">Miami Beach, FL 33139</p>
+                    </div>
+                </div>
+
+                <div style="margin-top: 30px;">
+                    <button class="btn" onclick="loadAgentDetails()">
+                        <i class="fas fa-user-tie"></i> Meet Our Agents
+                    </button>
+                    <button class="btn btn-secondary" onclick="loadPropertyReviews()">
+                        <i class="fas fa-star"></i> Client Reviews
+                    </button>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer style="background: rgba(0,0,0,0.8); color: white; text-align: center; padding: 40px 20px; margin-top: 60px;">
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <h3 style="margin-bottom: 20px;">🏖️ South Beach Homes</h3>
+            <p style="opacity: 0.8; margin-bottom: 20px;">Your gateway to luxury oceanfront living in Miami Beach</p>
+            <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+                <a href="#" style="color: white; text-decoration: none;"><i class="fab fa-facebook"></i> Facebook</a>
+                <a href="#" style="color: white; text-decoration: none;"><i class="fab fa-instagram"></i> Instagram</a>
+                <a href="#" style="color: white; text-decoration: none;"><i class="fab fa-twitter"></i> Twitter</a>
+                <a href="#" style="color: white; text-decoration: none;"><i class="fab fa-linkedin"></i> LinkedIn</a>
+            </div>
+            <p style="opacity: 0.6; margin-top: 20px; font-size: 0.9rem;">© 2025 South Beach Homes. All rights reserved. | Powered by JSONPlaceholder API</p>
+        </div>
+    </footer>
+
+    <script>
+        // API Base URL
+        const API_BASE_URL = 'https://jsonplaceholder.typicode.com';
+
+        // Property data transformation mappings
+        const PROPERTY_TYPES = ['Oceanfront Villa', 'Luxury Condo', 'Penthouse Suite', 'Beach House', 'Modern Loft'];
+        const LOCATIONS = ['Ocean Drive', 'Collins Avenue', 'Washington Avenue', 'Lincoln Road', 'Alton Road'];
+        const NEIGHBORHOODS = ['South Beach', 'Mid Beach', 'North Beach', 'Fisher Island', 'Star Island'];
+
+        // Miami Beach property images - using specific real estate imagery
+        const MIAMI_PROPERTY_IMAGES = [
+            'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=400&h=250&fit=crop', // Modern luxury home
+            'https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=400&h=250&fit=crop', // Oceanfront condo
+            'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=400&h=250&fit=crop', // Luxury villa
+            'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=400&h=250&fit=crop', // Modern penthouse
+            'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=400&h=250&fit=crop', // Beach house
+            'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=400&h=250&fit=crop', // Luxury apartment
+            'https://images.unsplash.com/photo-1600047509358-9dc75507daeb?w=400&h=250&fit=crop', // Modern home exterior
+            'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=400&h=250&fit=crop', // Waterfront property
+            'https://images.unsplash.com/photo-1600566753051-aa9c66be5e5b?w=400&h=250&fit=crop', // Luxury condo building
+            'https://images.unsplash.com/photo-1600607688969-a5bfcd646154?w=400&h=250&fit=crop'  // High-rise luxury
+        ];
+
+        // Utility function to generate random property data
+        function transformPostToProperty(post) {
+            const basePrice = 1000000 + (post.id * 150000) + Math.random() * 2000000;
+            const bedrooms = 2 + Math.floor(Math.random() * 4);
+            const bathrooms = bedrooms + Math.floor(Math.random() * 2);
+            const sqft = 1500 + (bedrooms * 400) + Math.floor(Math.random() * 1500);
+            
+            return {
+                id: post.id,
+                title: `Luxury ${PROPERTY_TYPES[post.id % PROPERTY_TYPES.length]}`,
+                location: `${post.id * 10 + Math.floor(Math.random() * 90)} ${LOCATIONS[post.id % LOCATIONS.length]}`,
+                neighborhood: NEIGHBORHOODS[post.id % NEIGHBORHOODS.length],
+                price: Math.floor(basePrice),
+                bedrooms: bedrooms,
+                bathrooms: bathrooms,
+                sqft: sqft,
+                description: post.body.substring(0, 120) + '...',
+                image: MIAMI_PROPERTY_IMAGES[(post.id - 1) % MIAMI_PROPERTY_IMAGES.length],
+                featured: post.id <= 6,
+                agentId: post.userId
+            };
+        }
+
+        function transformUserToAgent(user) {
+            const specialties = ['Luxury Properties', 'Oceanfront Homes', 'Investment Properties', 'New Developments'];
+            const yearsExp = 5 + Math.floor(Math.random() * 15);
+            
+            return {
+                id: user.id,
+                name: user.name,
+                title: 'Real Estate Specialist',
+                specialty: specialties[user.id % specialties.length],
+                phone: user.phone,
+                email: user.email,
+                website: user.website,
+                experience: `${yearsExp} years`,
+                company: user.company.name,
+                catchphrase: user.company.catchPhrase
+            };
+        }
+
+        // Loading states
+        function showLoading() {
+            document.getElementById('loadingMessage').style.display = 'block';
+        }
+
+        function hideLoading() {
+            document.getElementById('loadingMessage').style.display = 'none';
+        }
+
+        // Main property loading functions
+        async function loadFeaturedProperties() {
+            showLoading();
+            try {
+                const response = await fetch(`${API_BASE_URL}/posts`);
+                const posts = await response.json();
+                
+                const properties = posts.slice(0, 6).map(transformPostToProperty);
+                displayProperties(properties);
+                
+                // Update stats
+                document.getElementById('totalProperties').textContent = posts.length;
+                
+            } catch (error) {
+                console.error('Error loading properties:', error);
+                document.getElementById('propertiesGrid').innerHTML = 
+                    '<div style="color: white; text-align: center; grid-column: 1/-1;">Failed to load properties. Please try again.</div>';
+            } finally {
+                hideLoading();
+            }
+        }
+
+        async function searchProperties() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            const priceRange = document.getElementById('priceRange').value;
+            
+            showLoading();
+            try {
+                const response = await fetch(`${API_BASE_URL}/posts`);
+                const posts = await response.json();
+                
+                let properties = posts.map(transformPostToProperty);
+                
+                // Filter by search term
+                if (searchTerm) {
+                    properties = properties.filter(prop => 
+                        prop.title.toLowerCase().includes(searchTerm) ||
+                        prop.location.toLowerCase().includes(searchTerm) ||
+                        prop.neighborhood.toLowerCase().includes(searchTerm) ||
+                        prop.description.toLowerCase().includes(searchTerm)
+                    );
+                }
+                
+                // Filter by price range
+                if (priceRange === 'low') {
+                    properties = properties.filter(prop => prop.price < 2000000);
+                } else if (priceRange === 'mid') {
+                    properties = properties.filter(prop => prop.price >= 2000000 && prop.price < 5000000);
+                } else if (priceRange === 'high') {
+                    properties = properties.filter(prop => prop.price >= 5000000);
+                }
+                
+                displayProperties(properties.slice(0, 12));
+                
+            } catch (error) {
+                console.error('Error searching properties:', error);
+            } finally {
+                hideLoading();
+            }
+        }
+
+        function displayProperties(properties) {
+            const grid = document.getElementById('propertiesGrid');
+            
+            if (properties.length === 0) {
+                grid.innerHTML = '<div style="color: white; text-align: center; grid-column: 1/-1; font-size: 1.2rem;">No properties found matching your criteria.</div>';
+                return;
+            }
+            
+            grid.innerHTML = properties.map(property => `
+                <div class="property-card" onclick="showPropertyDetails(${property.id})">
+                    <div class="property-image">
+                        <img src="${property.image}" alt="${property.title}" 
+                             onerror="this.src='https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=400&h=250&fit=crop';"
+                             loading="lazy">
+                        ${property.featured ? '<div class="property-badge">FEATURED</div>' : ''}
+                    </div>
+                    <div class="property-details">
+                        <div class="property-title">${property.title}</div>
+                        <div class="property-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            ${property.location}, ${property.neighborhood}
+                        </div>
+                        <div class="property-price">$${property.price.toLocaleString()}</div>
+                        <div class="property-features">
+                            <div class="feature">
+                                <i class="fas fa-bed"></i>
+                                ${property.bedrooms} Beds
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-bath"></i>
+                                ${property.bathrooms} Baths
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-ruler-combined"></i>
+                                ${property.sqft.toLocaleString()} sq ft
+                            </div>
+                        </div>
+                        <button class="btn" onclick="event.stopPropagation(); contactAgent(${property.agentId})">
+                            <i class="fas fa-phone"></i> Contact Agent
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Agent loading functions
+        async function loadAgentDetails() {
+            try {
+                const response = await fetch(`${API_BASE_URL}/users`);
+                const users = await response.json();
+                
+                const agents = users.map(transformUserToAgent);
+                displayAgents(agents);
+                
+                // Update stats
+                document.getElementById('totalAgents').textContent = agents.length;
+                
+                // Scroll to agents section
+                document.getElementById('agents').scrollIntoView({ behavior: 'smooth' });
+                
+            } catch (error) {
+                console.error('Error loading agents:', error);
+            }
+        }
+
+        function displayAgents(agents) {
+            const grid = document.getElementById('agentsGrid');
+            
+            grid.innerHTML = agents.map(agent => `
+                <div class="agent-card">
+                    <div class="agent-avatar">
+                        ${agent.name.split(' ').map(n => n[0]).join('')}
+                    </div>
+                    <h3 style="color: #333; margin-bottom: 10px;">${agent.name}</h3>
+                    <p style="color: #FF6B6B; font-weight: bold; margin-bottom: 10px;">${agent.title}</p>
+                    <p style="color: #666; margin-bottom: 15px;">${agent.specialty}</p>
+                    <p style="color: #666; font-size: 0.9rem; margin-bottom: 15px;">${agent.experience} experience</p>
+                    <div style="display: flex; justify-content: space-between; gap: 10px;">
+                        <button class="btn" style="flex: 1; font-size: 0.9rem; padding: 8px;" onclick="contactAgent(${agent.id})">
+                            <i class="fas fa-phone"></i> Call
+                        </button>
+                        <button class="btn btn-secondary" style="flex: 1; font-size: 0.9rem; padding: 8px;" onclick="emailAgent('${agent.email}')">
+                            <i class="fas fa-envelope"></i> Email
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Property and agent interaction functions
+        async function showPropertyDetails(propertyId) {
+            try {
+                const response = await fetch(`${API_BASE_URL}/posts/${propertyId}`);
+                const post = await response.json();
+                const property = transformPostToProperty(post);
+                
+                // Get property comments (reviews)
+                const commentsResponse = await fetch(`${API_BASE_URL}/posts/${propertyId}/comments`);
+                const reviews = await commentsResponse.json();
+                
+                alert(`🏖️ ${property.title}
+
+📍 Location: ${property.location}, ${property.neighborhood}
+💰 Price: $${property.price.toLocaleString()}
+🏠 ${property.bedrooms} bed, ${property.bathrooms} bath
+📐 ${property.sqft.toLocaleString()} sq ft
+
+📝 Description: ${property.description}
+
+⭐ ${reviews.length} client reviews available
+
+Click "Contact Agent" to schedule a viewing!`);
+                
+            } catch (error) {
+                console.error('Error loading property details:', error);
+                alert('Sorry, could not load property details. Please try again.');
+            }
+        }
+
+        async function contactAgent(agentId) {
+            try {
+                const response = await fetch(`${API_BASE_URL}/users/${agentId}`);
+                const user = await response.json();
+                const agent = transformUserToAgent(user);
+                
+                alert(`📞 Contact ${agent.name}
+
+🏢 ${agent.company}
+📧 ${agent.email}
+📱 ${agent.phone}
+🌐 ${agent.website}
+
+💼 Specializes in: ${agent.specialty}
+⏰ Experience: ${agent.experience}
+
+"${agent.catchphrase}"
+
+Ready to help you find your dream South Beach home!`);
+                
+            } catch (error) {
+                console.error('Error loading agent details:', error);
+                alert('Sorry, could not load agent information. Please try again.');
+            }
+        }
+
+        function emailAgent(email) {
+            window.location.href = `mailto:${email}?subject=Inquiry about South Beach Properties&body=Hi! I'm interested in learning more about your available South Beach properties. Please contact me to discuss my needs.`;
+        }
+
+        async function loadPropertyReviews() {
+            try {
+                const response = await fetch(`${API_BASE_URL}/comments`);
+                const comments = await response.json();
+                
+                const reviews = comments.slice(0, 5).map(comment => ({
+                    client: comment.name,
+                    email: comment.email,
+                    review: comment.body.substring(0, 150) + '...',
+                    rating: 4 + Math.floor(Math.random() * 2) // 4-5 stars
+                }));
+                
+                const reviewsText = reviews.map(review => 
+                    `⭐${'★'.repeat(review.rating)} ${review.client}: "${review.review}"`
+                ).join('\n\n');
+                
+                alert(`🌟 Client Reviews for South Beach Homes\n\n${reviewsText}\n\n🏆 Average Rating: 4.8/5 stars\n💯 98% Client Satisfaction Rate`);
+                
+            } catch (error) {
+                console.error('Error loading reviews:', error);
+            }
+        }
+
+        // Initialize the website
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('🏖️ South Beach Homes website loaded!');
+            
+            // Load featured properties on page load
+            loadFeaturedProperties();
+            
+            // Add search functionality on Enter key
+            document.getElementById('searchInput').addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    searchProperties();
+                }
+            });
+            
+            // Smooth scrolling for navigation
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth' });
+                    }
+                });
+            });
+        });
+
+        // Add some dynamic effects
+        function addInteractiveEffects() {
+            // Animate stats on scroll
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const counter = entry.target;
+                        const target = parseInt(counter.textContent);
+                        let current = 0;
+                        const increment = target / 50;
+                        const timer = setInterval(() => {
+                            current += increment;
+                            if (current >= target) {
+                                counter.textContent = target;
+                                clearInterval(timer);
+                            } else {
+                                counter.textContent = Math.ceil(current);
+                            }
+                        }, 20);
+                    }
+                });
+            });
+
+            document.querySelectorAll('.stat-number').forEach(counter => {
+                observer.observe(counter);
+            });
+        }
+
+        // Call effects after page load
+        setTimeout(addInteractiveEffects, 1000);
+    </script>
+<!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+</body>
+</html>
